@@ -17,7 +17,7 @@ RSS Feeds ──► Python Agent ──► CAP Service (SQLite) ──► React 
 | `news-service/` | SAP CAP (Node.js) | Stores & serves news via REST API |
 | `news-service/ui/` | React + UI5 Web Components | Live dashboard UI |
 
----
+--- test
 
 ## Quick Start
 
