@@ -1,0 +1,7 @@
+apiVersion: solution.sap/v1
+kind: Solution
+metadata:
+  name: breaking-news-dashboard
+  version: 1.0.0
+assets:
+  - ref: ./assets/news-service/asset.yaml

@@ -1,0 +1,15 @@
+{
+  "requires": {
+    "db": {
+      "kind": "sqlite",
+      "credentials": { "url": "news.db" }
+    },
+    "auth": { "kind": "dummy" }
+  },
+  "server": {
+    "cors": true
+  },
+  "odata": {
+    "version": "v4"
+  }
+}

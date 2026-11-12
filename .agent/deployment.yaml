@@ -1,0 +1,5 @@
+applications:
+  - name: news-service
+    path: news-service
+    type: cap
+    description: Breaking Science & Tech News Dashboard

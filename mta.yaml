@@ -1,0 +1,42 @@
+_schema-version: "3.1"
+ID: news-dashboard
+version: 1.0.0
+description: Breaking Science & Tech News Dashboard
+
+modules:
+  # ── CAP Backend + React UI ──────────────────────────────────────────────────
+  - name: news-service-srv
+    type: nodejs
+    path: news-service
+    parameters:
+      memory: 384M
+      disk-quota: 1024M
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+        - npm run deploy:sqlite
+        - npm run build
+      build-result: .
+    provides:
+      - name: news-service-api
+        properties:
+          url: ${default-url}
+
+  # ── Python News Agent ───────────────────────────────────────────────────────
+  - name: news-agent
+    type: application
+    path: news-agent
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+      no-route: true
+      health-check-type: process
+      buildpack: python_buildpack
+    requires:
+      - name: news-service-api
+    properties:
+      NEWS_SERVICE_URL: ~{news-service-api/url}/api
+      TOP_N: "3"
+      OPENAI_MODEL: gpt-4o-mini
+      OPENAI_API_KEY: ""

@@ -1,0 +1,7 @@
+apiVersion: asset.sap/v1
+kind: Asset
+metadata:
+  name: news-service
+  version: 1.0.0
+type: agent
+path: .

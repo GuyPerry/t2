@@ -1,0 +1,19 @@
+{
+  "welcomeFile": "/app/",
+  "authenticationMethod": "none",
+  "routes": [
+    {
+      "source": "^/api/(.*)$",
+      "destination": "news-service-api",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/app/(.*)$",
+      "localDir": "app/dashboard"
+    },
+    {
+      "source": "^/(.*)$",
+      "localDir": "app/dashboard"
+    }
+  ]
+}
